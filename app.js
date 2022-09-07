@@ -2,6 +2,8 @@ const dragItem = Array.from(document.querySelectorAll("img"));
 const pGdiv = Array.from(document.querySelectorAll(".pGDiv"));
 const player1 = Array.from(document.querySelectorAll(".player1"));
 const player2 = Array.from(document.querySelectorAll(".player2"));
+const player1Turn = document.querySelector("#player1");
+const player2Turn = document.querySelector("#player2")
 
 let dragItem2;
 let dragoverElement;
@@ -58,6 +60,10 @@ const turnfunction = ()=>{
                 
             }
         )
+            player2Turn.classList.add("change-color");
+            if(player1Turn.classList.contains("change-color")){
+                player1Turn.classList.remove("change-color");
+            }
         turn = false;
     }
     else{
@@ -73,6 +79,10 @@ const turnfunction = ()=>{
                 
             }
         )
+        player1Turn.classList.add("change-color");
+        if(player2Turn.classList.contains("change-color")){
+            player2Turn.classList.remove("change-color");
+        }
         turn = true;
     }
 }
@@ -131,12 +141,7 @@ pGdiv.forEach(
 dragItem.forEach(
     (dragItem)=>{
         dragItem.addEventListener("dragstart",dragStart);
-
-
         dragItem.addEventListener("dragend",dragend);
-        
-        
-      
     }
 )
 

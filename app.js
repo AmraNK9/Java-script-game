@@ -15,6 +15,12 @@ let wincondition =[
     [0,3,6],
     [2,5,8]
 ]
+
+const changeColor = (v)=>{
+    pGdiv[v[0]].classList.add("change-color");
+    pGdiv[v[1]].classList.add("change-color");
+    pGdiv[v[2]].classList.add("change-color");
+}
     
 console.log(pGdiv[3].children.length)
 const checkWinner = ()=>{
@@ -25,26 +31,38 @@ const checkWinner = ()=>{
         let child3 = pGdiv[v[2]].children;
         
         if(child1.length > 0 && child2.length > 0 && child3.length){
-
-            console.log('this is run');
-            console.log(child1[0].classList.contains("player1") );
-            console.log(child2[0].classList.contains("player1") );
-            console.log(child3[0].classList.contains("player1") );
             if(child1[0].classList.contains("player1") && child2[0].classList.contains("player1") && child3[0].classList.contains("player1")){
-                console.log("Player1 Win")
+                console.log("Player1 Win");
+                changeColor(v);
             }
             else if(child1[0].classList.contains("player2") && child2[0].classList.contains("player2") && child3[0].classList.contains("player2")){
-                console.log("Player2 Win")
+                console.log("Player2 Win");
+                changeColor(v);
             }
 
+        }
+        if(pGdiv[6].children.length>0 && pGdiv[7].children.length>0&& pGdiv[8].children.length>0){
+            if(pGdiv[6].children[0].classList.contains("player1")&&pGdiv[6].children[0].classList.contains("player1")&&pGdiv[8].children[0].classList.contains("player1")){
+                console.log("Player1 Win");
+                pGdiv[6].classList.add("change-color");
+                pGdiv[7].classList.add("change-color");
+                pGdiv[8].classList.add("change-color");
+            }
+          
+        }
+        if(pGdiv[0].children.length>0 && pGdiv[1].children.length>0&& pGdiv[2].children.length>0){
+            if(pGdiv[0].children[0].classList.contains("player2")&&pGdiv[1].children[0].classList.contains("player2")&&pGdiv[2].children[0].classList.contains("player2")){
+                console.log("Player2 Win");
+                pGdiv[0].classList.add("change-color");
+                pGdiv[1].classList.add("change-color");
+                pGdiv[2].classList.add("change-color");
+            }
+         
         }
     
     }
   )
 }
-
-
-
 
 const turnfunction = ()=>{
     if(turn){

@@ -1,0 +1,84 @@
+:root{
+    --primary : #333;
+}
+*{
+    text-align: center;
+}
+.container {
+
+    background-color: var(--primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 90vw;
+    height: 98vh;
+
+    
+
+}
+
+body {
+
+    background-color: var(--primary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.player{
+    background-color: #333;
+    width: 100%;
+    height: 5%;
+    background-color: aliceblue;
+
+}
+
+.playGround{
+    background-color: #333;
+    width: 60%;
+    height: 50%;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.pGDiv{
+    background-color: #333;
+    width:20%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 5%;
+}
+.play{
+    background-color: rebeccapurple;
+    width: 80%;
+    height: 80%;
+    border-radius: 100%;
+}
+
+img{
+    width: fit-content;
+    width: 30%;
+    height: 30%;
+
+}
+
+.hidden {
+    display: none;
+}
+
+.border{
+  
+    border: 2px 2px dashed rebeccapurple;
+}
+
+.change-color{
+    background-color: greenyellow;
+}

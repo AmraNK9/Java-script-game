@@ -131,11 +131,18 @@ const dragover = (e)=>{
 
 const drop = (e)=>{
 
-console.log(e.target.children.length)
-e.target.append(dragItem2);
+
+if(e.target.children.length === 0 &&( e.target.classList.contains("player1") == false && e.target.classList.contains("player2")== false)){
+    console.log("run");
+ 
+    console.log(   e.target)
+    e.target.append(dragItem2);
 e.preventDefault();
 turnfunction();
 checkWinner();
+
+}
+
 
 }
 
@@ -164,3 +171,4 @@ dragItem.forEach(
 )
 
 turnfunction();
+

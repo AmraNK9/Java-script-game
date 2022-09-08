@@ -131,8 +131,8 @@ const dragover = (e)=>{
 
 const drop = (e)=>{
 
-
-  e.target.append(dragItem2);
+console.log(e.target.children.length)
+e.target.append(dragItem2);
 e.preventDefault();
 turnfunction();
 checkWinner();

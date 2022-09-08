@@ -6,7 +6,7 @@ const player1Turn = document.querySelector("#player1");
 const player2Turn = document.querySelector("#player2")
 
 let dragItem2;
-let dragoverElement;
+let dragoverElement,dragElement;
 let turn = true;
 let wincondition =[
     [3,4,5],
@@ -17,12 +17,19 @@ let wincondition =[
 ]
 
 const changeColor = (v)=>{
-    pGdiv[v[0]].classList.add("change-color");
-    pGdiv[v[1]].classList.add("change-color");
-    pGdiv[v[2]].classList.add("change-color");
+    let classChanger = "change-color";
+    pGdiv[v[0]].classList.add(classChanger);
+    pGdiv[v[1]].classList.add(classChanger);
+    pGdiv[v[2]].classList.add(classChanger);
+}
+const drop2 = (e)=>{
+    e.target.append(dragItem2);
+                e.preventDefault();
+                turnfunction();
+                checkWinner();
 }
     
-console.log(pGdiv[3].children.length)
+
 const checkWinner = ()=>{
   wincondition.forEach(
     (v)=>{
@@ -110,10 +117,10 @@ const dragStart = (e)=>{
     dragItem2 = e.target;
     setTimeout(() => (dragItem2.className += ' hidden'), 0);
 
+    dragElement = pGdiv.indexOf(e.target.parentElement);
+    console.log(dragElement);
 
 }
-
-
 
 const dragend = (e)=>{
         e.preventDefault();
@@ -134,14 +141,68 @@ const drop = (e)=>{
 
 if(e.target.children.length === 0 &&( e.target.classList.contains("player1") == false && e.target.classList.contains("player2")== false)){
     console.log("run");
- 
-    console.log(   e.target)
-    e.target.append(dragItem2);
-e.preventDefault();
-turnfunction();
-checkWinner();
+    switch(dragElement){
+        case 0:
+            if(pGdiv.indexOf(e.target)==3||pGdiv.indexOf(e.target)==4||pGdiv.indexOf(e.target)==1){
+            drop2(e);
+                
+            }
+        break;
+        case 1:
+            if(pGdiv.indexOf(e.target)==0||pGdiv.indexOf(e.target)==2||pGdiv.indexOf(e.target)==4){
+            drop2(e);
+                
+            }
+        break;
+        case 2:
+            if(pGdiv.indexOf(e.target)==4||pGdiv.indexOf(e.target)==5||pGdiv.indexOf(e.target)==1){
+            drop2(e);
+                
+            }
+        break;
+        case 3:
+            if(pGdiv.indexOf(e.target)==0||pGdiv.indexOf(e.target)==6||pGdiv.indexOf(e.target)==4){
+            drop2(e);
+                
+            }
+        break;
+        case 4:
+            if(true){
+            drop2(e);
+                
+            }
+        break;
+        case 5:
+            if(pGdiv.indexOf(e.target)==8||pGdiv.indexOf(e.target)==2||pGdiv.indexOf(e.target)==4){
+            drop2(e);
+                
+            }
+        break;
+        case 6:
+            if(pGdiv.indexOf(e.target)==3||pGdiv.indexOf(e.target)==7||pGdiv.indexOf(e.target)==4){
+            drop2(e);
+                
+            }
+        break;
+        case 7:
+            if(pGdiv.indexOf(e.target)==6||pGdiv.indexOf(e.target)==8||pGdiv.indexOf(e.target)==4){
+            drop2(e);
+                
+            }
+        break;
+        case 8:
+            if(pGdiv.indexOf(e.target)==7||pGdiv.indexOf(e.target)==5||pGdiv.indexOf(e.target)==4){
+            drop2(e);
+                
+            }
+        break;
+       
+        
+    }
+
 
 }
+
 
 
 }
